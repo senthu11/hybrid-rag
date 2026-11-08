@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>RAG · Search comparison</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<header><a href="/" class="brand">RAG / Search comparison</a><span id="index-status" role="status">Checking your sources…</span></header>
+<main>
+<section class="intro"><h1>One question. Three ways to search.</h1><p>Explore how keywords and meaning find different evidence in your AI &amp; RAG collection.</p></section>
+<form id="search-form">
+<label for="question">Your question</label>
+<textarea id="question" required maxlength="2000" rows="2" placeholder="How does retrieval augmented generation work?"></textarea>
+<div class="controls"><div><label for="top-k">Results per method</label><select id="top-k"><option value="3">3 results</option><option value="5">5 results</option><option value="10">10 results</option></select></div><label class="check"><input id="generate" type="checkbox" checked> Include an answer from hybrid results</label><button id="submit" type="submit">Ask &amp; compare</button></div>
+<p class="hint">Semantic search uses your configured API. Including an answer makes one additional model request.</p>
+</form>
+<div class="suggestions"><span>Try a question</span><button type="button" data-question="How does retrieval augmented generation work?">How does RAG work?</button><button type="button" data-question="How does semantic search find synonyms?">Finding similar meanings</button><button type="button" data-question="How does reranking improve retrieval?">Why rerank results?</button></div>
+<p id="progress" role="status" aria-live="polite"></p><p id="error" role="alert" hidden></p>
+<section id="answer-section" hidden><div class="section-title"><h2>Answer</h2><span>Based on hybrid results</span></div><div id="answer"></div><div id="citations" aria-label="Answer sources"></div></section>
+<section aria-labelledby="comparison-title"><div class="section-title"><h2 id="comparison-title">Compare the evidence</h2><span id="result-status">Your results will appear here</span></div><p class="hint">Scores use different scales. Compare rank and relevance, not the numbers across methods. Matching passage IDs identify the same evidence.</p><p id="result-question" hidden></p>
+<div class="columns">
+<section class="method"><h3>BM25 <span>Keywords</span></h3><p>Finds passages with the words you use.</p><ol id="bm25-results"><li class="empty">Ask a question to see keyword matches.</li></ol></section>
+<section class="method"><h3>Semantic <span>Meaning</span></h3><p>Finds passages with a similar meaning.</p><ol id="semantic-results"><li class="empty">Ask a question to explore related ideas.</li></ol></section>
+<section class="method"><h3>Hybrid <span>Combined</span></h3><p>Combines both rankings into one list.</p><ol id="hybrid-results"><li class="empty">Ask a question to compare the combined ranking.</li></ol></section>
+</div></section>
+<footer>Answers are generated from retrieved passages. Check the linked sources for context.</footer>
+</main></body></html>
