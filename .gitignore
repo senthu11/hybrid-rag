@@ -1,0 +1,43 @@
+.local-config/
+data/
+__pycache__/
+*.pyc
+trip_planner.log
+trip_planner.log.*
+trip_report.md
+trip_sources.json
+.venv/
+.streamlit/secrets.toml
+
+# Credentials, including nested API experiments
+.env
+.env.*
+!.env.example
+secrets.toml
+secrets.*.toml
+*.pem
+*.key
+credentials.json
+
+# Local state, dependencies, and generated diagnostics
+*.log
+*.log.*
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.db
+venv/
+node_modules/
+.rag-tools/
+.uv-rag-cache/
+.pytest_cache/
+.ruff_cache/
+Logs/
+output/
+outputs/
+test-results/
+project_test/
+
+# Local upload bundles
+github-upload/
+quiet-escape-github.zip
